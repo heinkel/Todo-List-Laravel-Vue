@@ -2,11 +2,10 @@
 <template>
     <div class="addTask">
          <input type="text" v-model="task.name" placeholder="Add new task" />
-         <font-awesome-icon
-            icon="plus-square"
+         <button
             @click="addTask()"
             :class="[task.name ? 'active' : 'inactive' , 'plus']"
-        />
+        >Add</button>
     </div>
 </template>
 <script>
@@ -34,9 +33,8 @@ export default {
         .catch( error => {
             console.log(error);
         })
+        }
     }
-
- }
 }
 </script>
 <style  scoped>
@@ -44,25 +42,45 @@ export default {
     display: flex ;
     justify-content: center;
     align-items: center;
+    position:relative;
 }
 input {
-    background: #ffe227 ;
+    background: #eb596e;
     border: 1px;
     outline: none;
     padding: 5px;
     margin-right: 10px;
     width: 100%;
-    color:#4d375d;
+    color:#121013 ;
     font-weight: 900;
+    border-radius: 12px;
 
 }
+
+button{
+    outline: none;
+    height: 1.6rem;
+    border-radius: 12px;
+
+}
+input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+
+
 .plus{
-    font-size: 20px;
+    font-size: .85rem;
+    color:white;
+
 }
 .active{
-    color: #eb596e;
+    background-color: #eb596e;
 }
 .inactive{
-    color:#4d375d;
+    background-color:#4d375d;
 }
+
+
 </style>
