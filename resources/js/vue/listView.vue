@@ -1,9 +1,9 @@
 <template>
     <div>
         <div v-for="(task, index) in tasks" :key="index">
-            <list-view :task="task"
-                class="task"
-            />
+            <div class="task">
+                {{ task.name }}
+            </div>
         </div>
     </div>
 
@@ -22,10 +22,22 @@ export default {
 
 <style scoped>
     .task {
-        background:palevioletred;
-        padding: 5px;
-        margin-top: 5px;
+        background: white;
+        padding:2px;
+        align-items: center;
+        text-align: center;
+        margin:auto;
+        width: 90%;
+        height: 1rem;
+        color:black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
     }
+ /**   .task:after {
+  content: 'Task Item';
+
+}*/
 </style>
 
 

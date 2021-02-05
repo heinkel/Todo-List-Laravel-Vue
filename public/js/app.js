@@ -12164,7 +12164,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.todoListContainer[data-v-27d9b80a] {\n    width: 350px;\n    margin: auto;\n}\n.heading[data-v-27d9b80a] {\n    background: #ffe227;\n    padding: 10px;\n    border-radius: 12px;\n}\n/**template{\n    background-color: black;\n}*/\n#title[data-v-27d9b80a] {\n    text-align: center;\n    color: #121013;\n}.Tlist[data-v-27d9b80a] {\n    margin-top: 10px;\n    width:100%;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.todoListContainer[data-v-27d9b80a] {\n    width: 350px;\n    margin: auto;\n}\n.heading[data-v-27d9b80a] {\n\n    padding: 10px;\n    border-radius: 12px;\n    background: #7474BF;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n}\n/**template{\n    background-color: black;\n}*/\n#title[data-v-27d9b80a] {\n    text-align: center;\n    color: white;\n}.Tlist[data-v-27d9b80a] {\n    margin-top: 10px;\n    width:100%;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12212,7 +12212,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.task[data-v-1e30e04a] {\n    background:palevioletred;\n    padding: 5px;\n    margin-top: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.task[data-v-1e30e04a] {\n        background: white;\n        padding:2px;\n        align-items: center;\n        text-align: center;\n        margin:auto;\n        width: 90%;\n        height: 1rem;\n        color:black;\n        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n}\n /**   .task:after {\n  content: 'Task Item';\n\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30577,9 +30577,11 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c("span", { class: [_vm.task.is_done ? "is_done" : "", "taskText"] }, [
-      _vm._v(_vm._s(_vm.task.name))
-    ]),
+    _c(
+      "span",
+      { class: [_vm.task.is_done ? "is_done" : "undone", "taskText"] },
+      [_vm._v(_vm._s(_vm.task.name))]
+    ),
     _vm._v(" "),
     _c("button", {
       staticClass: "trash-button",
@@ -30617,12 +30619,11 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.tasks, function(task, index) {
-      return _c(
-        "div",
-        { key: index },
-        [_c("list-view", { staticClass: "task", attrs: { task: task } })],
-        1
-      )
+      return _c("div", { key: index }, [
+        _c("div", { staticClass: "task" }, [
+          _vm._v("\n            " + _vm._s(task.name) + "\n        ")
+        ])
+      ])
     }),
     0
   )

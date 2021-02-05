@@ -5,7 +5,7 @@
             @change="updateCheck()"
             v-model="task.is_done"
         />
-            <span :class="[task.is_done ? 'is_done' : '' , 'taskText']">{{ task.name }}</span>
+            <span :class="[task.is_done ? 'is_done' : 'undone' , 'taskText']">{{ task.name }}</span>
             <button @click="removeTask()" class="trash-button">
 
             </button>
