@@ -27,7 +27,8 @@ export default {
         })
         .then( response => {
             if(response.status ==   201 ){
-                this.task.name  ==  "";
+                this.task.name  =  "";
+                this.$emit('reloadlist');
             }
         })
         .catch( error => {
@@ -47,7 +48,7 @@ export default {
 }
 input {
     background: #eb596e;
-    border: 1px;
+    border: 2px;
     outline: none;
     padding: 5px;
     margin-right: 10px;

@@ -7,7 +7,8 @@
                 :tasks="tasks"
                 v-on:reloadlist="getTask()"/>
              </div>
-            <add-task-form/>
+            <add-task-form
+                v-on:reloadlist="getTask()"/>
         </div>
 
     </div>

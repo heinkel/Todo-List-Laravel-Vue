@@ -4,7 +4,7 @@
 
                 <list-task :task="task"
 
-                v-on:taskchanged = "$emit('reloadlist')"
+                v-on:taskchanged="$emit('reloadlist')"
                 />
 
         </div>

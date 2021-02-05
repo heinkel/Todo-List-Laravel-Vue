@@ -11927,7 +11927,9 @@ __webpack_require__.r(__webpack_exports__);
         task: this.task
       }).then(function (response) {
         if (response.status == 201) {
-          _this.task.name == "";
+          _this.task.name = "";
+
+          _this.$emit('reloadlist');
         }
       })["catch"](function (error) {
         console.log(error);
@@ -11951,6 +11953,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _addTaskForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addTaskForm */ "./resources/js/vue/addTaskForm.vue");
 /* harmony import */ var _listView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listView */ "./resources/js/vue/listView.vue");
+//
 //
 //
 //
@@ -12020,6 +12023,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["task"],
   methods: {
@@ -12037,8 +12041,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     removeTask: function removeTask() {
+      var _this2 = this;
+
       axios["delete"]('api/task/' + this.task.id).then(function (response) {
-        if (response == 200) {}
+        if (response == 200) {
+          _this2.$emit('taskchanged');
+        }
+      })["catch"](function (error) {
+        console.log(error);
       });
     }
   }
@@ -12162,7 +12172,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.addTask[data-v-136d0813] {\n    display: flex ;\n    justify-content: center;\n    align-items: center;\n    position:relative;\n    margin-top: .5rem;\n}\ninput[data-v-136d0813] {\n    background: #eb596e;\n    border: 1px;\n    outline: none;\n    padding: 5px;\n    margin-right: 10px;\n    width: 80%;\n    color:#121013 ;\n    font-weight: 900;\n    border-radius: 12px;\n}\nbutton[data-v-136d0813]{\n    outline: none;\n    height: 1.6rem;\n    border-radius: 12px;\n}\ninput[data-v-136d0813]::-moz-placeholder {\n  color: white;\n  opacity: 1;\n}\ninput[data-v-136d0813]:-ms-input-placeholder {\n  color: white;\n  opacity: 1;\n}\ninput[data-v-136d0813]::placeholder {\n  color: white;\n  opacity: 1;\n}\n.plus[data-v-136d0813]{\n    font-size: .85rem;\n    color:white;\n}\n.active[data-v-136d0813]{\n    background-color: #eb596e;\n}\n.inactive[data-v-136d0813]{\n    background-color:#4d375d;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.addTask[data-v-136d0813] {\n    display: flex ;\n    justify-content: center;\n    align-items: center;\n    position:relative;\n    margin-top: .5rem;\n}\ninput[data-v-136d0813] {\n    background: #eb596e;\n    border: 2px;\n    outline: none;\n    padding: 5px;\n    margin-right: 10px;\n    width: 80%;\n    color:#121013 ;\n    font-weight: 900;\n    border-radius: 12px;\n}\nbutton[data-v-136d0813]{\n    outline: none;\n    height: 1.6rem;\n    border-radius: 12px;\n}\ninput[data-v-136d0813]::-moz-placeholder {\n  color: white;\n  opacity: 1;\n}\ninput[data-v-136d0813]:-ms-input-placeholder {\n  color: white;\n  opacity: 1;\n}\ninput[data-v-136d0813]::placeholder {\n  color: white;\n  opacity: 1;\n}\n.plus[data-v-136d0813]{\n    font-size: .85rem;\n    color:white;\n}\n.active[data-v-136d0813]{\n    background-color: #eb596e;\n}\n.inactive[data-v-136d0813]{\n    background-color:#4d375d;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30533,7 +30543,13 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("add-task-form")
+        _c("add-task-form", {
+          on: {
+            reloadlist: function($event) {
+              return _vm.getTask()
+            }
+          }
+        })
       ],
       1
     )

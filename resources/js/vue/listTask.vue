@@ -7,7 +7,8 @@
         />
             <span :class="[task.is_done ? 'is_done' : '' , 'taskText']">{{ task.name }}</span>
 
-            <button @click="removeTask()" class="trashbutton">
+            <button @click="removeTask()" class="trashbutton" >
+
             </button>
     </div>
 </template>
@@ -33,8 +34,11 @@ export default {
                 axios.delete('api/task/' + this.task.id)
                 .then( response => {
                     if (response == 200 ) {
-
+                        this.$emit('taskchanged');
                     }
+                })
+                .catch( error => {
+                    console.log(error);
                 })
             }
     }
