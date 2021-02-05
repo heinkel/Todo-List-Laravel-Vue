@@ -2,13 +2,12 @@
     <div class="todoListContainer">
         <div class="heading">
             <h2 id="title">Todo List</h2>
-
-            <add-task-form/>
              <div class="Tlist">
-
-                <list-view :tasks="tasks" />
+                <list-view
+                :tasks="tasks"
+                v-on:reloadlist="getTask()"/>
              </div>
-
+            <add-task-form/>
         </div>
 
     </div>
@@ -69,7 +68,7 @@ export default {
         color: white;
     }.Tlist {
         margin-top: 10px;
-        width:100%;
+        width:90%;
     }
 
 

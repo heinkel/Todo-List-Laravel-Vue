@@ -43,6 +43,7 @@ export default {
     justify-content: center;
     align-items: center;
     position:relative;
+    margin-top: .5rem;
 }
 input {
     background: #eb596e;
@@ -50,7 +51,7 @@ input {
     outline: none;
     padding: 5px;
     margin-right: 10px;
-    width: 100%;
+    width: 80%;
     color:#121013 ;
     font-weight: 900;
     border-radius: 12px;

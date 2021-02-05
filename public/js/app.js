@@ -11966,7 +11966,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -12022,7 +12021,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["task"]
+  props: ["task"],
+  methods: {
+    updateCheck: function updateCheck() {
+      var _this = this;
+
+      axios.put('api/task/' + this.task.id, {
+        task: this.task
+      }).then(function (response) {
+        if (response.status == 200) {
+          _this.$emit('taskchanged');
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    removeTask: function removeTask() {
+      axios["delete"]('api/task/' + this.task.id).then(function (response) {
+        if (response == 200) {}
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -12039,6 +12058,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _listTask_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./listTask.vue */ "./resources/js/vue/listTask.vue");
+//
+//
+//
 //
 //
 //
@@ -12140,7 +12162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.addTask[data-v-136d0813] {\n    display: flex ;\n    justify-content: center;\n    align-items: center;\n    position:relative;\n}\ninput[data-v-136d0813] {\n    background: #eb596e;\n    border: 1px;\n    outline: none;\n    padding: 5px;\n    margin-right: 10px;\n    width: 100%;\n    color:#121013 ;\n    font-weight: 900;\n    border-radius: 12px;\n}\nbutton[data-v-136d0813]{\n    outline: none;\n    height: 1.6rem;\n    border-radius: 12px;\n}\ninput[data-v-136d0813]::-moz-placeholder {\n  color: white;\n  opacity: 1;\n}\ninput[data-v-136d0813]:-ms-input-placeholder {\n  color: white;\n  opacity: 1;\n}\ninput[data-v-136d0813]::placeholder {\n  color: white;\n  opacity: 1;\n}\n.plus[data-v-136d0813]{\n    font-size: .85rem;\n    color:white;\n}\n.active[data-v-136d0813]{\n    background-color: #eb596e;\n}\n.inactive[data-v-136d0813]{\n    background-color:#4d375d;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.addTask[data-v-136d0813] {\n    display: flex ;\n    justify-content: center;\n    align-items: center;\n    position:relative;\n    margin-top: .5rem;\n}\ninput[data-v-136d0813] {\n    background: #eb596e;\n    border: 1px;\n    outline: none;\n    padding: 5px;\n    margin-right: 10px;\n    width: 80%;\n    color:#121013 ;\n    font-weight: 900;\n    border-radius: 12px;\n}\nbutton[data-v-136d0813]{\n    outline: none;\n    height: 1.6rem;\n    border-radius: 12px;\n}\ninput[data-v-136d0813]::-moz-placeholder {\n  color: white;\n  opacity: 1;\n}\ninput[data-v-136d0813]:-ms-input-placeholder {\n  color: white;\n  opacity: 1;\n}\ninput[data-v-136d0813]::placeholder {\n  color: white;\n  opacity: 1;\n}\n.plus[data-v-136d0813]{\n    font-size: .85rem;\n    color:white;\n}\n.active[data-v-136d0813]{\n    background-color: #eb596e;\n}\n.inactive[data-v-136d0813]{\n    background-color:#4d375d;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12164,7 +12186,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.todoListContainer[data-v-27d9b80a] {\n    width: 350px;\n    margin: auto;\n}\n.heading[data-v-27d9b80a] {\n\n    padding: 10px;\n    border-radius: 12px;\n    background: #7474BF;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n}\n/**template{\n    background-color: black;\n}*/\n#title[data-v-27d9b80a] {\n    text-align: center;\n    color: white;\n}.Tlist[data-v-27d9b80a] {\n    margin-top: 10px;\n    width:100%;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.todoListContainer[data-v-27d9b80a] {\n    width: 350px;\n    margin: auto;\n}\n.heading[data-v-27d9b80a] {\n\n    padding: 10px;\n    border-radius: 12px;\n    background: #7474BF;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n}\n/**template{\n    background-color: black;\n}*/\n#title[data-v-27d9b80a] {\n    text-align: center;\n    color: white;\n}.Tlist[data-v-27d9b80a] {\n    margin-top: 10px;\n    width:90%;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12188,7 +12210,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.completed[data-v-831129ac] {\n    text-decoration: line-through;\n    color: #999;\n}\n.taskText[data-v-831129ac] {\n    width: 100%;\n    margin-left: 20px;\n}\n.task[data-v-831129ac]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.trash-button[data-v-831129ac] {\n    background: whitesmoke;\n    border: none;\n    color: red;\n    outline: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.is_done[data-v-831129ac] {\n    text-decoration: line-through;\n    color: #999;\n}\n.taskText[data-v-831129ac] {\n    width: 100%;\n}\n.task[data-v-831129ac]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.trashbutton[data-v-831129ac] {\n    background: rgb(255, 146, 146);\n    border: none;\n    color: black;\n    outline: none;\n    height: .8rem;\n    width: .8rem;\n    transform: rotate(45deg);\n    margin-right: 10px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12212,7 +12234,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.task[data-v-1e30e04a] {\n        background: white;\n        padding:2px;\n        align-items: center;\n        text-align: center;\n        margin:auto;\n        width: 90%;\n        height: 1rem;\n        color:black;\n        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n}\n /**   .task:after {\n  content: 'Task Item';\n\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.task[data-v-1e30e04a] {\n        background: white;\n        padding:2px;\n        align-items: center;\n        text-align: center;\n        font-weight: 200;\n        font-size: .75rem;\n        margin:auto;\n        width: 75%;\n        height: 1rem;\n        color:black;\n        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n}\n /**   .task:after {\n  content: 'Task Item';\n\n}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30495,14 +30517,23 @@ var render = function() {
       [
         _c("h2", { attrs: { id: "title" } }, [_vm._v("Todo List")]),
         _vm._v(" "),
-        _c("add-task-form"),
-        _vm._v(" "),
         _c(
           "div",
           { staticClass: "Tlist" },
-          [_c("list-view", { attrs: { tasks: _vm.tasks } })],
+          [
+            _c("list-view", {
+              attrs: { tasks: _vm.tasks },
+              on: {
+                reloadlist: function($event) {
+                  return _vm.getTask()
+                }
+              }
+            })
+          ],
           1
-        )
+        ),
+        _vm._v(" "),
+        _c("add-task-form")
       ],
       1
     )
@@ -30577,14 +30608,12 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c(
-      "span",
-      { class: [_vm.task.is_done ? "is_done" : "undone", "taskText"] },
-      [_vm._v(_vm._s(_vm.task.name))]
-    ),
+    _c("span", { class: [_vm.task.is_done ? "is_done" : "", "taskText"] }, [
+      _vm._v(_vm._s(_vm.task.name))
+    ]),
     _vm._v(" "),
     _c("button", {
-      staticClass: "trash-button",
+      staticClass: "trashbutton",
       on: {
         click: function($event) {
           return _vm.removeTask()
@@ -30619,11 +30648,21 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.tasks, function(task, index) {
-      return _c("div", { key: index }, [
-        _c("div", { staticClass: "task" }, [
-          _vm._v("\n            " + _vm._s(task.name) + "\n        ")
-        ])
-      ])
+      return _c(
+        "div",
+        { key: index },
+        [
+          _c("list-task", {
+            attrs: { task: task },
+            on: {
+              taskchanged: function($event) {
+                return _vm.$emit("reloadlist")
+              }
+            }
+          })
+        ],
+        1
+      )
     }),
     0
   )
