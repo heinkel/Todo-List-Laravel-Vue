@@ -53,10 +53,10 @@ input {
     padding: 5px;
     margin-right: 10px;
     width: 80%;
-    color:#121013 ;
+    color:rgb(228, 222, 222) ;
     font-weight: 900;
     border-radius: 12px;
-
+    border:1px solid black;
 }
 
 button{

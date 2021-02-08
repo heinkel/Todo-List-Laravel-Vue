@@ -30,7 +30,7 @@ export default {
         font-weight: 200;
         font-size: .75rem;
         margin:auto;
-        width: 75%;
+        width: auto;
         height: 1rem;
         color:black;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
