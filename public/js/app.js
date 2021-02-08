@@ -12046,6 +12046,8 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]('api/task/' + this.task.id).then(function (response) {
         if (response == 200) {
           _this2.$emit('taskchanged');
+
+          _this2.$forceUpdate();
         }
       })["catch"](function (error) {
         console.log(error);

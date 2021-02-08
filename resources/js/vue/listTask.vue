@@ -35,6 +35,7 @@ export default {
                 .then( response => {
                     if (response == 200 ) {
                         this.$emit('taskchanged');
+                        this.$forceUpdate();
                     }
                 })
                 .catch( error => {
